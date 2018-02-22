@@ -1,2 +1,2 @@
 # TomsList
-A website for posting personal for sale ads
+## A website for posting personal for sale ads
