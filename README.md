@@ -15,7 +15,7 @@ The server will be built using node/express using the MVC model.  Data will be h
 
 ## Wireframes / Database
 
-Please see attached folder *
+Please see attached images folder *
 
 ## Pending
 
