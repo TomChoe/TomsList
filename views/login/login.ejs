@@ -1,0 +1,15 @@
+<% include ./partials/boilerplate.ejs %>
+
+<h1> this is the login page!</h1>
+
+<form action='/login' method ='post'>
+	<label>
+		<p>username <input type='text' name = 'username'></p>
+	</label>
+	<label>
+		<p>password <input type='password' name = 'password'></p>
+	</label>
+	<input type="submit">
+</form>
+
+<% include ./partials/footer.ejs %>

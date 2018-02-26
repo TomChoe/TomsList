@@ -1,0 +1,18 @@
+<% include ./partials/boilerplate.ejs %>
+
+<h1>This is the signup page</h1>
+
+<form action='/signup' method ='post'>
+	<label>
+		<p>name <input type = 'text' name = 'name'></p>
+	</label>
+	<label>
+		<p>username <input type='text' name = 'username'></p>
+	</label>
+	<label>
+		<p>password <input type='password' name = 'password'></p>
+	</label>
+	<input type="submit">
+</form>
+
+<% include ./partials/footer.ejs %>

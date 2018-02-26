@@ -11,18 +11,21 @@ CREATE TABLE users (
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE usersdata (
-	id SERIAL PRIMARY KEY,
-	user_id INTEGER REFERENCES users(id),
-	cat_id INTEGER REFERENCES categories(id),
-	price INTEGER,
-	content TEXT,
-	location
-);
 
 CREATE TABLE categories (
 	id SERIAL PRIMARY KEY,
 	catname VARCHAR(255)
+);
+
+CREATE TABLE usersdata (
+	id SERIAL PRIMARY KEY,
+	user_id INTEGER REFERENCES users(id),
+	cat_id INTEGER REFERENCES categories(id),
+	title VARCHAR(255),
+	price INTEGER,
+	content TEXT,
+	imgurl TEXT,
+	location INTEGER
 );
 
 CREATE INDEX ON users (username);
