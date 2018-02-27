@@ -1,0 +1,20 @@
+<% include ../partials/boilerplate.ejs %>
+
+<h1> create a quote </h1>
+
+<form method = "POST" action = "/posts">
+	<input name="user_id" type="number" placeholder="userID" />
+	  <select name="cat_id">  <!--Supplement an id here instead of using 'text'-->
+  	<% cat.forEach(category => { %>
+ 	 	<option value="<%=category.id %>" selected> <%=category.catname %> </option> 
+ 	 <% }) %>
+ 	  </select>
+ 	<input name="title" type="text" placeholder="title" />
+ 	<input name="price" type="number" placeholder="price" />
+ 	<input name="content" type="text" placeholder="content" />
+ 	<input name="imgurl" type="text" placeholder="image url" />
+ 	<input name="location" type="number" placeholder="location" />
+	<input type="submit" value="Add it!" />
+</form>
+
+<% include ../partials/footer.ejs %>

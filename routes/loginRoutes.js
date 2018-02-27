@@ -1,6 +1,11 @@
-//const loginRouter = require('express').Router();
+const loginRouter = require('express').Router();
 
-//const loginController = require('./controllers/usersController');
-//const viewsController = require('./controllers/viewsController');
+const loginController = require('../controllers/usersController');
 
-//loginRouter.get('/', viewsController.loginPage)
+const views = require('../controllers/viewsController');
+
+loginRouter.route('/')
+	.get(views.signupPage)
+	.post(loginController.newUser, views.userCreate);
+
+module.exports = loginRouter;

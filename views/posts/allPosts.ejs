@@ -1,0 +1,9 @@
+<% include ../partials/boilerplate.ejs %>
+
+<h1> this is the posts page </h1>
+
+<% data.forEach( (i) => { %>
+	<p><%= i.title %></p>
+<% }) %>
+
+<% include ../partials/footer.ejs %>
