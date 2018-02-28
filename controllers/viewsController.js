@@ -34,5 +34,9 @@ module.exports = {
 
  	userCreate(req, res) {
  		res.redirect('/posts')
+ 	},
+
+ 	show404(req, res) {
+ 		res.render('posts/showError')
  	}
 }

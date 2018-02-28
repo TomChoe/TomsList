@@ -9,5 +9,9 @@ module.exports = {
 
 	findUser(username) {
 		return db.one('SELECT username, password FROM users WHERE username = $1', username)
+	},
+
+	authenticateByUsername(username) {
+		return db.one('SELECT username, password FROM users WHERE username = $/username/', username)
 	}
 }

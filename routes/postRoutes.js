@@ -4,15 +4,22 @@ const postsController = require('../controllers/postsController');
 
 const catController = require('../controllers/catController');
 
+const users = require('../controllers/usersController');
+
 const views = require('../controllers/viewsController')
+
+postRouter.use(users.isLoggedIn);
+
 
 postRouter.get('/', postsController.index, views.showPosts);
 
-postRouter.post('/new', postsController.createPost, views.createForm);
+postRouter.get('/new', catController.index, views.createForm)
 
-postRouter.get('/:id', postsController.getPost, views.showPost);
+postRouter.post('/new', postsController.createPost, views.show404);
 
 postRouter.put('/:id/edit', postsController.updatePost, views.updatePost);
+
+postRouter.get('/:id', postsController.getPost, views.showPost);
 
 postRouter.delete('/:id', postsController.deletePost);
 

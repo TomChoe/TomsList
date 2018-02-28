@@ -4,8 +4,8 @@ const users = require('../controllers/usersController');
 
 const views = require('../controllers/viewsController');
 
-loginRouter.get('/', views.loginPage)
+loginRouter.get('/', views.loginPage, views.show404)
 
-loginRouter.post('/', users.getUser, users.checkUser, users.isLoggedIn)
+loginRouter.post('/', users.authenticate, views.show404)
 
 module.exports = loginRouter;

@@ -1,8 +1,8 @@
 <% include ../partials/boilerplate.ejs %>
 
-<h1> create a quote </h1>
+<h1> create an ad </h1>
 
-<form method = "POST" action = "/posts">
+<form method = "POST" action = "./new">
 	<input name="user_id" type="number" placeholder="userID" />
 	  <select name="cat_id">  <!--Supplement an id here instead of using 'text'-->
   	<% cat.forEach(category => { %>
