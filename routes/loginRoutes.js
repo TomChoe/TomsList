@@ -1,11 +1,11 @@
 const loginRouter = require('express').Router();
 
-const loginController = require('../controllers/usersController');
+const users = require('../controllers/usersController');
 
 const views = require('../controllers/viewsController');
 
-loginRouter.route('/')
-	.get(views.signupPage)
-	.post(loginController.newUser, views.userCreate);
+loginRouter.get('/', views.loginPage)
+
+loginRouter.post('/', users.getUser, users.checkUser, users.isLoggedIn)
 
 module.exports = loginRouter;

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
 const postRouter = require('./routes/postRoutes');
+const signupRouter = require('./routes/signupRoutes');
 const loginRouter = require('./routes/loginRoutes');
 
 const PORT = process.env.PORT || 3000;
@@ -28,17 +29,6 @@ app.use(session({
 	secret: 'very, secret'
 }));
 
-let username = "doodeitstom";
-
-function authenticate(username, password, fn) {
-	console.log(`authenticating %s:%s`);
-	const user = username;
-	if (!user) return fn(new Error('cannot find user'));
-	if (password !== user.password) return fn(new Error('Incorrect password'));
-	if (err) return fn(err);
-	return fn(null, user);
-};
-
 app.use((req, res, next) => {
 	const err = req.session.error;
 	const msg = req.session.success;
@@ -47,40 +37,20 @@ app.use((req, res, next) => {
 	res.locals.message = '';
 	if (err) res.locals.message = `<p class = "msg error"> ${err} </p>`;
 	if (msg) res.locals.message = `<p class = "msg success"> ${msg} </p>`;
-	console.log(res.locals.message)
+	console.log('this is the session message',res.locals.message)
 	next();
 });
 
-app.get('/login', (req, res) => {
-	res.render('login/login')
-});
+app.use('/login', loginRouter);
 
-app.post('/login', (req, res) => {
-	console.log('posting login')
-	const {username, password} = req.body;
-	authenticate(username, password, (err, user) => {
-		if (err) {
-			req.session.error = 'Failed incorrect password';
-			res.redirect('/login')
-		} else {
-			req.session.regenerate(() => {
-			req.session.user = user;
-			req.session.success = 'Welcome Back';
-			res.redirect('back');
-		  })
-		}
-	})
-});
-
-app.get('/', (req, res) => {
-	console.log(req.session.user)
-	res.render('index')
-});
-
-app.use('/signup', loginRouter);
+app.use('/signup', signupRouter);
 
 app.use('/posts', postRouter);
 
+app.get('/', (req, res) => {
+	console.log('this is the req.session',req.session)
+	res.render('index')
+});
 app.get('*', (req, res) => {
 	res.status(404).send('Page not found!!')
 });

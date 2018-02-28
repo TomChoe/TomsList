@@ -1,7 +1,7 @@
 module.exports = {
 	loginPage(req, res) {
 		res.render('login/login')
-			data: res.locals.users
+			data: res.locals.user
 	},
 
 	signupPage(req, res) {

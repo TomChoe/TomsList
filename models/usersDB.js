@@ -7,7 +7,7 @@ module.exports = {
 					   RETURNING *`, user)
 	},
 
-	findUsers(user) {
-		return db.any('SELECT * FROM users')
+	findUser(username) {
+		return db.one('SELECT username, password FROM users WHERE username = $1', username)
 	}
 }
