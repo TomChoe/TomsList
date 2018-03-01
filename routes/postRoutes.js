@@ -10,19 +10,19 @@ const views = require('../controllers/viewsController')
 
 postRouter.use(users.isLoggedIn);
 
-
 postRouter.get('/', postsController.index, views.showPosts);
 
 postRouter.get('/new', catController.index, views.createForm)
 
-postRouter.post('/new', postsController.createPost, views.show404);
-
-postRouter.put('/:id/edit', postsController.updatePost, views.updatePost);
+postRouter.post('/new', postsController.createPost, views.postCreate);
 
 postRouter.get('/:id', postsController.getPost, views.showPost);
 
-postRouter.delete('/:id', postsController.deletePost);
+postRouter.get('/:id/edit', catController.index, postsController.getPost, views.updatePost)
 
+postRouter.put('/:id', postsController.updatePost, views.postUpdate, views.show404);
+
+postRouter.delete('/:id', postsController.deletePost, views.postDelete);
 
 /*postRouter.get('/:id/edit', catController.index, views.showPost)
 postRouter.get('/new', catController.index, views.createForm);

@@ -1,10 +1,13 @@
 <% include ../partials/boilerplate.ejs %>
 
 <h1> create an ad </h1>
+<h5> <%=data.id%> </h5>
 
 <form method = "POST" action = "./new">
-	<input name="user_id" type="number" placeholder="userID" />
-	  <select name="cat_id">  <!--Supplement an id here instead of using 'text'-->
+	
+	<input name="user_id" type="hidden" value="<%=data.id%>" placeholder="userID" />
+
+	  <select name="cat_id">  
   	<% cat.forEach(category => { %>
  	 	<option value="<%=category.id %>" selected> <%=category.catname %> </option> 
  	 <% }) %>
@@ -14,7 +17,7 @@
  	<input name="content" type="text" placeholder="content" />
  	<input name="imgurl" type="text" placeholder="image url" />
  	<input name="location" type="number" placeholder="location" />
-	<input type="submit" value="Add it!" />
+	<input type="submit" value="Add" />
 </form>
 
 <% include ../partials/footer.ejs %>

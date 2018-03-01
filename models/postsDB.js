@@ -8,9 +8,7 @@ module.exports = {
 	findPostId(id) {
 		return db.one(`SELECT *
 					   FROM usersdata
-					   JOIN categories
-					   ON usersdata.cat_id = categories.id
-					   WHERE usersdata.id = $1`, id)
+					   WHERE id = $1`, id)
 	},
 
 	savePost(post) {
@@ -27,10 +25,11 @@ module.exports = {
 					   content = $/content/,
 					   imgurl = $/imgurl/,
 					   location = $/location/
+					   WHERE id = $/id/
 					   RETURNING *`, post)
 	},
 
 	delete(id) {
-		return db.one('DELETE FROM usersdata WHERE id =$1', id)
+		return db.none('DELETE FROM usersdata WHERE id =$1', id)
 	}
 }

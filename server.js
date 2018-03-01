@@ -29,17 +29,17 @@ app.use(session({
 	secret: 'very, secret'
 }));
 
-// app.use((req, res, next) => {
-// 	const err = req.session.error;
-// 	const msg = req.session.success;
-// 	delete req.session.error;
-// 	delete req.session.success;
-// 	res.locals.message = '';
-// 	if (err) res.locals.message = `<p class = "msg error"> ${err} </p>`;
-// 	if (msg) res.locals.message = `<p class = "msg success"> ${msg} </p>`;
-// 	console.log('this is the session message', msg)
-// 	next();
-// });
+app.use((req, res, next) => {
+ 	const err = req.session.error;
+ 	const msg = req.session.success;
+ 	delete req.session.error;
+ 	delete req.session.success;
+ 	res.locals.message = '';
+ 	if (err) res.locals.message = `<p class = "msg error"> ${err} </p>`;
+ 	if (msg) res.locals.message = `<p class = "msg success"> ${msg} </p>`;
+ 	console.log('this is the session message', msg)
+ 	next();
+});
 
 app.use('/login', loginRouter);
 

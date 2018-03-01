@@ -12,6 +12,6 @@ module.exports = {
 	},
 
 	authenticateByUsername(username) {
-		return db.one('SELECT username, password FROM users WHERE username = $/username/', username)
+		return db.one('SELECT * FROM users WHERE username = $/username/ AND password = $/password/', username)
 	}
 }

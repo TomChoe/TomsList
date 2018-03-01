@@ -21,11 +21,17 @@ module.exports = {
  	},
 
  	createForm(req, res) {
- 		res.render('posts/createPost')
+ 		console.log('this is the create USER', req.session.user)
+ 		res.render('posts/createPost', {
+ 			data: req.session.user
+ 		})
  	},
 
  	updatePost(req, res) {
- 		res.render('posts/updatePost')
+ 		console.log('update this', res.locals.post);
+ 		res.render('posts/updatePost', {
+ 			data: res.locals.post
+ 		})
  	},
 
  	postCreate(req, res) {
@@ -33,6 +39,14 @@ module.exports = {
  	},
 
  	userCreate(req, res) {
+ 		res.redirect('/posts')
+ 	},
+
+ 	postUpdate(req, res) {
+ 		res.redirect('/posts')
+ 	},
+
+ 	postDelete(req, res) {
  		res.redirect('/posts')
  	},
 

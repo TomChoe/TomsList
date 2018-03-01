@@ -1,7 +1,9 @@
 <% include ../partials/boilerplate.ejs %>
 
-<h1> just one post </h1>
-<p> <%= data.title %> </p>
-<p> <%= data.content %></p>
-<p> <%= data.price %></p>
-<% include ../partials/footer.ejs %>
+<h1> <%= data.title %> </h1>
+<h3> description: </h3> <p><%= data.content %></p>
+<h3> price: </h3><p><%= data.price %></p>
+
+<a href="/posts/<%=data.id%>/edit"><button>edit</button></a>
+
+<h5><% include ../partials/footer.ejs %></h5>

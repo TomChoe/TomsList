@@ -2,8 +2,10 @@
 
 <h1> this is the posts page </h1>
 
-<% data.forEach( (i) => { %>
-	<p><%= i.title %></p>
-<% }) %>
+<ul>
+	<% data.forEach( (post) => { %>
+		<li><a href="/posts/<%= post.id %>"><%= post.title %></a></li>
+	<% }) %>
+</ul>
 
 <% include ../partials/footer.ejs %>
