@@ -12,6 +12,8 @@ postRouter.use(users.isLoggedIn);
 
 postRouter.get('/', postsController.index, views.showPosts);
 
+postRouter.get('/logout', users.logOut);
+
 postRouter.get('/new', catController.index, views.createForm)
 
 postRouter.post('/new', postsController.createPost, views.postCreate);

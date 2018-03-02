@@ -4,16 +4,33 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>TomsList</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <div class="container">
-<h1> This is the index </h1>
 
-<span>
-	<a href = '/login'><button>login</button></a>
-	<a href = '/signup'><button>sign up</button></a>
-</span>
+<div class="jumbotron">
+  <h1 class="display-4" style="color: blue">TomsList</h1>
+  <p class="lead">Welcome to my app that allows users to post, edit, and delete for-sale ads. There will be categories in which the user can choose to that corresponds to the item they are selling. Ads will feature a title, price, and a small map that shows the general vicinity the item is located along with several pictures if the user chooses to do so.</p>
+  <hr class="my-4">
+  <p>All users must sign in OR sign up in order to view.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+    <a class="btn btn-primary btn-lg" href="/signup" role="button">Sign Up</a>
+  </p>
+</div>
+
+<!--
+<h1>Hello Reina!</h1>
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="/login">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/signup">Signup</a>
+  </li>
+</ul>
+-->
 
 <% include ./partials/footer.ejs %>

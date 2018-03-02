@@ -37,7 +37,6 @@ app.use((req, res, next) => {
  	res.locals.message = '';
  	if (err) res.locals.message = `<p class = "msg error"> ${err} </p>`;
  	if (msg) res.locals.message = `<p class = "msg success"> ${msg} </p>`;
- 	console.log('this is the session message', msg)
  	next();
 });
 

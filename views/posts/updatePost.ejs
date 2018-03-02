@@ -3,12 +3,15 @@
 <h1> this is the update page </h1>
 
 <form method="POST" action="/posts/<%=data.id%>?_method=PUT">
+
 	<input name="id" type="hidden" value="<%=data.id%>">
+
 	<select name="cat_id">  
   		<% cat.forEach(category => { %>
  	 		<option value="<%=category.id %>" selected> <%=category.catname %> </option> 
  	 	<% }) %>
  	 </select>
+ 	 
 	<input name="title" type="text" value="<%=data.title%>" placeholder="title" />
  	<input name="price" type="number" value="<%=data.price%>" placeholder="price" />
  	<input name="content" type="text" value="<%=data.content%>" placeholder="content" />

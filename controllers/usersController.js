@@ -1,6 +1,7 @@
 const loginDB = require('../models/usersDB');
 
 module.exports = {
+
 	newUser(req, res, next) {
 		loginDB.createUser(req.body)
 		.then((user) => {
@@ -48,7 +49,6 @@ module.exports = {
       })
   	  .catch(err => {
       req.session.error = 'Authentication failed. Please try again';
-      console.log(req.session.error)
       next();
       });
   },
@@ -61,6 +61,12 @@ module.exports = {
 			req.session.error = 'Login required'
 			res.redirect('/login')
 		}
+	},
+
+	logOut(req, res, next) {
+		req.session.destroy();
+		res.redirect('/');
+		next()
 	},
 
 	isUser(req, res, next) {
