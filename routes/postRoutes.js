@@ -12,7 +12,11 @@ postRouter.use(users.isLoggedIn);
 
 postRouter.get('/', postsController.index, views.showPosts);
 
+postRouter.get('/categories/:id', catController.index, postsController.getPostsByCat, views.showPostsByCat)
+
 postRouter.get('/logout', users.logOut);
+
+postRouter.get('/profile', postsController.getUserPosts, views.showProfile);
 
 postRouter.get('/new', catController.index, views.createForm)
 
@@ -25,17 +29,5 @@ postRouter.get('/:id/edit', catController.index, postsController.getPost, views.
 postRouter.put('/:id', postsController.updatePost, views.postUpdate, views.show404);
 
 postRouter.delete('/:id', postsController.deletePost, views.postDelete);
-
-/*postRouter.get('/:id/edit', catController.index, views.showPost)
-postRouter.get('/new', catController.index, views.createForm);
-
-postRouter.route('/:id')
-	.get(postsController.getPost)
-	.put(postsController.updatePost)
-	.delete(postsController.deletePost);
-
-postRouter.route('/')
-	.get(postsController.index, views.showPosts)
-	.post(postsController.createPost, views.postCreate); */
 
 module.exports = postRouter;

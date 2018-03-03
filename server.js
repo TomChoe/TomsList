@@ -1,15 +1,15 @@
 const express = require('express');
 const session = require('express-session');
-const logger = require('morgan');
+const logger = require('morgan');							//dependencies
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
 const postRouter = require('./routes/postRoutes');
-const signupRouter = require('./routes/signupRoutes');
+const signupRouter = require('./routes/signupRoutes');		//routes
 const loginRouter = require('./routes/loginRoutes');
 
 const PORT = process.env.PORT || 3000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV || 'development';		//process environments
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 app.use(session({
 	resave: false,
 	saveUnitialized: false,
-	secret: 'very, secret'
+	secret: 'very, secret'                 // user auth credit: JSM and whole lot of help from Casey Harding
 }));
 
 app.use((req, res, next) => {

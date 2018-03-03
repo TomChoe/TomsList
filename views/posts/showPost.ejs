@@ -6,6 +6,8 @@
 <h4> location: </h4><p><%=data.location%></p>
 <img src="<%=data.imgurl%>">
 
+<%if (user.id === data.user_id) { %>
 <a href="/posts/<%=data.id%>/edit"><button>edit</button></a>
+<% } %>
 
 <h5><% include ../partials/footer.ejs %></h5>

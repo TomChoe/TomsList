@@ -1,24 +1,48 @@
 <% include ../partials/boilerplate.ejs %>
 
 <h1> create an ad </h1>
-<h5> <%=data.id%> </h5>
+<h5> Current User: <%=data.username%> </h5>
 
 <form method = "POST" action = "./new">
-	
-	<input name="user_id" type="hidden" value="<%=data.id%>" placeholder="userID" />
 
-	  <select name="cat_id">  
-  	<% cat.forEach(category => { %>
- 	 	<option value="<%=category.id %>" selected> <%=category.catname %> </option> 
- 	 <% }) %>
- 	  </select>
- 	  
- 	<input name="title" type="text" placeholder="title" />
- 	<input name="price" type="number" placeholder="price" />
- 	<input name="content" type="text" placeholder="content" />
- 	<input name="imgurl" type="text" placeholder="image url" />
- 	<input name="location" type="number" placeholder="location" />
-	<input type="submit" value="Add" />
+  <input name="user_id" type="hidden" value="<%=data.id%>" placeholder="userID" />
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Category</label>
+    	<select class="form-control" id="exampleFormControlSelect1" name="cat_id">  
+  			<% cat.forEach(category => { %>
+ 	 			<option value="<%=category.id %>" selected> <%=category.catname %> </option> 
+ 	 		<% }) %>
+ 		 </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Ad title</label>
+    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="title"/>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Price</label>
+    <input type="number" name="price" class="form-control" id="exampleFormControlInput1" placeholder="price"/>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea type="text" name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Image URL</label>
+    <input type="text" name="imgurl" class="form-control" id="exampleFormControlInput1" placeholder="image url"/>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Location (zipcode)</label>
+    <input type="number" name="location" class="form-control" id="exampleFormControlInput1" placeholder="location"/>
+  </div>
+
+  <input type="submit" class="btn btn-primary">
+
 </form>
-
+<br>
 <% include ../partials/footer.ejs %>

@@ -31,6 +31,25 @@ module.exports = {
 		.catch((err) => next(err));
 	},
 
+	getUserPosts(req, res, next) {
+		postsDB.findPostsByUser(req.session.user.id)
+		.then((userPosts) => {
+			res.locals.userPosts = userPosts
+			next()
+		})
+		.catch((err) => next(err))
+	},
+
+	getPostsByCat(req, res, next) {
+		postsDB.findPostsByCat(req.params.id)
+		.then((catPosts) => {
+			console.log('Categories by id', catPosts)
+			res.locals.catPosts = catPosts
+			next()
+		})
+		.catch((err) => next(err))
+	},
+
 	createPost(req, res, next) {
 		postsDB.savePost(req.body)
 		.then((post) => {

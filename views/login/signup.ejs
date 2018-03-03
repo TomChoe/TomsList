@@ -9,22 +9,31 @@
 </head>
 <body>
 	
-<h1>This is the signup page</h1>
+<div class="container">
+
+<h1><span class="badge badge-secondary">Registration Page</span></h1>
 
 <form action='/signup' method ='POST'>
-	<label>
-		<p>name <input type = "text" name = "name"> </p>
-	</label>
-	<label>
-		<p>username <input type= "text" name = "username"> </p>
-	</label>
-	<label>
-		<p>email <input type = "text" name = "email"> </p>
-	</label>
-	<label>
-		<p>password <input type= "password" name = "password"> </p>
-	</label>
-	<input type="submit">
+  <div class="form-group">
+    <label for="username">Name</label>
+    <input type="text" name="name" class="form-control" aria-describedby="emailHelp" placeholder="First and Last">
+  </div>
+  <div class="form-group">
+    <label for="username">UserName</label>
+    <input type="text" name="username" class="form-control" aria-describedby="emailHelp" placeholder="username">
+  </div>
+  <div class="form-group">
+    <label for="username">Email Addess</label>
+    <input type="text" name="email" class="form-control" aria-describedby="emailHelp" placeholder="@email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password"  name="password" class="form-control" placeholder="Password">
+    <small id="emailHelp" class="form-text text-muted">** CAUTION: passwords are stored as plain text</small>
+  </div>
+  <input type="submit" class="btn btn-primary">
 </form>
+
+<br>
 
 <% include ../partials/footer.ejs %>

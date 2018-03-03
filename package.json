@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/TomChoe/TomsList.git"
   },
+  "engines": {
+    "node": "9.4.0"
+  },
   "author": "Tom Choe",
   "license": "MIT",
   "bugs": {

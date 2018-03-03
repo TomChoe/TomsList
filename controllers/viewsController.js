@@ -14,21 +14,26 @@ module.exports = {
 		})
  	},
 
+ 	showPostsByCat(req, res) {
+ 		res.render('posts/showPostsByCat', {
+ 			data: res.locals.catPosts
+ 		})
+ 	},
+
  	showPost(req, res) {
  		res.render('posts/showPost', {
- 			data: res.locals.post
+ 			data: res.locals.post,
+ 			user: req.session.user
  		})
  	},
 
  	createForm(req, res) {
- 		console.log('this is the create USER', req.session.user)
  		res.render('posts/createPost', {
  			data: req.session.user
  		})
  	},
 
  	updatePost(req, res) {
- 		console.log('update this', res.locals.post);
  		res.render('posts/updatePost', {
  			data: res.locals.post
  		})
@@ -48,6 +53,14 @@ module.exports = {
 
  	postDelete(req, res) {
  		res.redirect('/posts')
+ 	},
+
+ 	showProfile(req, res) {
+ 		console.log('this is profile data', res.locals.userPosts)
+ 		res.render('posts/myProfile', {
+ 			data: res.locals.userPosts,
+ 			user: req.session.user
+ 		})
  	},
 
  	show404(req, res) {
