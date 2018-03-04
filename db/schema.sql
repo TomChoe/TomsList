@@ -11,7 +11,6 @@ CREATE TABLE users (
 	date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-
 CREATE TABLE categories (
 	id SERIAL PRIMARY KEY,
 	catname VARCHAR(255)
@@ -25,7 +24,7 @@ CREATE TABLE usersdata (
 	price INTEGER,
 	content TEXT,
 	imgurl TEXT,
-	location INTEGER
+	location VARCHAR(5)
 );
 
 CREATE INDEX ON users (username);

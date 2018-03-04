@@ -11,7 +11,7 @@
 
                           <%#= (data.length > 0) ? data[0].catname : 'No items available' %>
     </h1>
-    
+  <br>
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Categories
@@ -26,17 +26,13 @@
 
   </div>
 </div>
-
 <br>
-
   <ul class="list-group">
 	<% data.forEach( (post) => { %>
 		<li><a href="/posts/<%= post.id %>" class="list-group-item list-group-item-action"><%= post.title %></a></li>
 	<% }) %>
   </ul>
-
   </div>
 </div>
-
 
 <% include ../partials/footer.ejs %>

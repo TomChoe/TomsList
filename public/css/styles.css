@@ -9,3 +9,17 @@
 li {
 	list-style-type: none;
 }
+
+#maintitle {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.display-4 {
+	color: blue;
+	font-weight: bold;
+}
+
+#dropdownMenuButton {
+	background: red;
+}

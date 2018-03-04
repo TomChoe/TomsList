@@ -15,10 +15,10 @@ INSERT INTO users (name, username, email, password) VALUES
 		'1234'
 	),
 	(
-		'test2',
+		'test',
 		'testytest',
 		'test@yahoo.com',
-		'1234'
+		'test'
 	);
 
 INSERT INTO usersdata (user_id, cat_id, title, price, content, imgurl, location) VALUES
@@ -29,5 +29,5 @@ INSERT INTO usersdata (user_id, cat_id, title, price, content, imgurl, location)
 		50,
 		'This is something for sale',
 		'http://',
-		07650
+		'07650'
 	);

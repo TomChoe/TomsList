@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 app.use(session({
 	resave: false,
 	saveUnitialized: false,
-	secret: 'very, secret'                 // user auth credit: JSM and whole lot of help from Casey Harding
+	secret: 'very, secret'                 					// user auth credit: JSM 
 }));
 
 app.use((req, res, next) => {

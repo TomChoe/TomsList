@@ -7,8 +7,11 @@ module.exports = {
 					   RETURNING *`, user)
 	},
 
-	findUser(username) {
-		return db.one('SELECT username, password FROM users WHERE username = $1', username)
+	findUserEmail(user) {
+		return db.one(`SELECT username, email FROM users
+					   JOIN usersdata
+					   ON usersdata.user_id = users.id
+					   WHERE usersdata.id = $1`, user)
 	},
 
 	authenticateByUsername(username) {

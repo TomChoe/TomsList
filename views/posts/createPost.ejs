@@ -1,8 +1,9 @@
 <% include ../partials/boilerplate.ejs %>
-
-<h1> create an ad </h1>
-<h5> Current User: <%=data.username%> </h5>
-
+<br>
+<h1 class="display-4"> Post a new ad </h1>
+<br>
+<h5> Current User: <mark style="color: aqua; background: green"><%=data.username%></mark> </h5>
+<br>
 <form method = "POST" action = "./new">
 
   <input name="user_id" type="hidden" value="<%=data.id%>" placeholder="userID" />
@@ -24,6 +25,7 @@
   <div class="form-group">
     <label for="exampleFormControlInput1">Price</label>
     <input type="number" name="price" class="form-control" id="exampleFormControlInput1" placeholder="price"/>
+    <small class="form-text text-muted" style="color: #ff0000 !important">** Required</small>
   </div>
 
   <div class="form-group">
@@ -34,11 +36,13 @@
   <div class="form-group">
     <label for="exampleFormControlInput1">Image URL</label>
     <input type="text" name="imgurl" class="form-control" id="exampleFormControlInput1" placeholder="image url"/>
+    <small class="form-text text-muted">* Please post url to image</small>
   </div>
 
   <div class="form-group">
     <label for="exampleFormControlInput1">Location (zipcode)</label>
     <input type="number" name="location" class="form-control" id="exampleFormControlInput1" placeholder="location"/>
+    <small class="form-text text-muted" style="color: #ff0000 !important">** Required</small>    
   </div>
 
   <input type="submit" class="btn btn-primary">

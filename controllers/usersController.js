@@ -1,7 +1,6 @@
 const loginDB = require('../models/usersDB');
 
 module.exports = {
-
 	newUser(req, res, next) {
 		loginDB.createUser(req.body)
 		.then((user) => {
@@ -12,31 +11,15 @@ module.exports = {
 		.catch(err => next(err))
 	},
 
-	getUser(req, res, next) {
-		loginDB.findUser(req.body.username)
-		.then((user) => {
-			req.session.user = user
-			console.log('req.session : ', req.session)
+	getUserEmail(req, res, next) {
+		loginDB.findUserEmail(req.params.id)
+		.then((email) => {
+			res.locals.email = email
+			console.log('User EMAIL has been fetched')
 			next()
 		})
 		.catch(err => next(err))
 	},
-
- // checkUser(req, res, next) {
- //    	req.session.oldUser = req.body;
- //    	if (req.body.username != req.session.user.username) {
- //    	  users.findByUsername(req.body)
- //    	  .then(user => {
- //    	    req.session.error = 'That username already exists!';
- //    	    res.redirect('back');
- //    	  })
- //    	  .catch(err => {
- //   	       next(err);
- //   	   });
- //   	 } else {
- //  	    next();
- //  	  }
- //  },
 
  	authenticate(req, res, next) {
   		loginDB.authenticateByUsername(req.body)
@@ -59,7 +42,7 @@ module.exports = {
 			next()
 		} else {
 			req.session.error = 'Login required'
-			res.redirect('/login')
+			res.redirect('/')
 		}
 	},
 

@@ -1,13 +1,13 @@
 <% include ../partials/boilerplate.ejs %>
-
-<h1>User profile page</h1>
-
-<h4>Recent Posts by <%= user.username %></h4>
-
+<br>
+<h1 class="display-4">User profile</h1>
+<br>
+<h4>Recent Posts by <mark style="color: aqua; background: green"><%= user.username %></mark></h4>
+<br>
   <ul class="list-group">
 	<% data.forEach( (userPosts) => { %>
 		<li><a href="/posts/<%= userPosts.id %>" class="list-group-item list-group-item-action"><%= userPosts.title %></a></li>
 	<% }) %>
   </ul>
-
+<br>
 <% include ../partials/footer.ejs %>
