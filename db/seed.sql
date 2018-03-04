@@ -1,5 +1,3 @@
-\c tomslist;
-
 INSERT INTO categories (catname) VALUES
 	('clothing'),
 	('electronics'),
