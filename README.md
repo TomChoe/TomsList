@@ -24,3 +24,9 @@ In addition if time allows, a blog feature could be added for each user.
 ## Instructions on testing in local environment
 
 If you like to test server on your local machine, clone or fork this repo and run the schema.sql file located in the db folder.  This will setup your local database.  A few example users will be in there along with their data.  Port can be setup to the users choosing.
+
+## Links to deployed site and video
+
+https://www.youtube.com/watch?v=UHmbAorCAKc
+
+https://projecttomslist.herokuapp.com/
